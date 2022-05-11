@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Routes, Route } from "react-router-dom";
+// IMPORT PAGES
+import Home from "./pages/AlgoHome";
+import Index from "./pages/AlgoIndex";
 
 function App() {
+  // URL should have YOUR HEROKU URL for your backend, make sure you include the trailing slash
+  const URL = "https://project3-algovis-backend.herokuapp.com/";
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+      <Route path="/" element={<Home href = {URL}/>} />
+      <Route path="/algorithms/" element={<Index href = {URL}/>} />  
+      </Routes>
     </div>
   );
 }
