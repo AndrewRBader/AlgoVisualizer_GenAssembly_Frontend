@@ -6,12 +6,12 @@ import Index from "./pages/AlgoIndex";
 
 function App() {
   // URL should have YOUR HEROKU URL for your backend, make sure you include the trailing slash
-  const URL = "https://project3-algovis-backend.herokuapp.com/";
+  const URL = "https://project3-algovis-backend.herokuapp.com/algorithmsJSON/";
 
   return (
     <div className="App">
       <Routes>
-      <Route path="/" element={<Home href = {URL}/>} />
+      <Route path="/" element={<Home/>} />
       <Route path="/algorithms/" element={<Index href = {URL}/>} />  
       </Routes>
     </div>
