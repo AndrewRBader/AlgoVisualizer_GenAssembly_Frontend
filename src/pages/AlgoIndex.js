@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import {Link} from "react-router-dom"
 
-function Index(props) {
-
-    console.log(props.href)
-    const [algorithms, setAlgorithms] = useState(null);
-
-    
-    return <h1>Algorithms Index</h1>;
-  }
+function Index() {
+  return (
+    <div>
+    <h1>Algorithm Index Page</h1>
+    <Link className = "algo-home-link" to="/">
+            <div>Algorithm Home Page</div>
+    </Link>
+    </div>
+    )
+}
   
-  export default Index;
+export default Index;
