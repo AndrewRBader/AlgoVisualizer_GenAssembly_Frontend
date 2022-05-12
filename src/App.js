@@ -6,7 +6,7 @@ import Index from "./pages/AlgoIndex";
 
 function App() {
 
-  const URL = "https://algoapi-project3-backend.herokuapp.com/algorithmsJSON/";
+  const URL = "https://algoapi-project3-backend.herokuapp.com/algorithmsJSDB/";
 
   return (
     <div className="App">
