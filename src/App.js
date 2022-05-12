@@ -6,11 +6,13 @@ import Index from "./pages/AlgoIndex";
 
 function App() {
 
+  const URL = "https://algoapi-project3-backend.herokuapp.com/algorithmsJSON/";
+
   return (
     <div className="App">
       <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="/algorithms/" element={<Index/>} />  
+      <Route path="/algorithms/" element={<Index href = {URL}/>} />  
       </Routes>
     </div>
   );
