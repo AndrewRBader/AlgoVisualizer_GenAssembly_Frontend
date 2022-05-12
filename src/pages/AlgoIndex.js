@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import {Link} from "react-router-dom"
+import React from 'react'
 
 function Index(props) {
 
   console.log(props.href)
 
     // create state to hold projects
-    const [algorithms, setAlgorithms] = useState(null);
+    const [algorithms, setAlgorithms] = useState([]);
     //create function to make api call
     const getAlgorithmsData = async () => {
       //make api call and get response
@@ -18,21 +18,38 @@ function Index(props) {
     };
   
     // make an initial call for the data inside a useEffect, so it only happens once on component load
-    useEffect(() => getAlgorithmsData(), []);
+    useEffect(() => 
+      getAlgorithmsData(), []);
+
+    
+  
+    const displayAlgorithms = (props) =>{
+      return(
+          <>
+          {props.map((algorithm) => {
+          return(
+            <div 
+              key = {algorithm.name}>
+              <h2>{algorithm.name}</h2>
+              <img src = {algorithm.image} alt = {algorithm.name} />
+              <p>{algorithm.description}</p> 
+            </div>
+            
+          )
+        })}
+          </>
+      )
+    }
 
     console.log(algorithms)
   
-  const loaded = () => {
   return (
     <div>
-    <Link className = "algo-home-link" to="/">
-          <div>Algorithm Home Page</div>
-    </Link>
+    <a href = "/">Algorithm Home Page</a>
     <h1>Algorithm Index Page</h1>
+    {displayAlgorithms(algorithms)}
     </div>
     )
-  }
-  return algorithms ? loaded() : <h1>Loading...</h1>;
 }
   
 export default Index;
