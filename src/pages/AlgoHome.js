@@ -7,6 +7,9 @@ function Home(props) {
     <Link className = "algo-index-link" to="/algorithms/">
             <div>Algorithm Index Page</div>
     </Link>
+    <Link className = "function-index-link" to="/functions/">
+            <div>Functions Index Page</div>
+    </Link>
     </div>
     )
   }
