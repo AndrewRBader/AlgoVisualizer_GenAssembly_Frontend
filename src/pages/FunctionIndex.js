@@ -27,16 +27,22 @@ function FunctionIndex(props) {
 
         let result = null
         let algoFunction = null
+        let inputs = []
 
         const runFunction = (e) =>{
             
             algoFunction = new Function("function algoFunction" + e + "; return algoFunction")
             console.log("this is the value " + algoFunction)
-            result = algoFunction.call({}).call({}, 3, 2);
+            inputs = [2, 3]
+            result = algoFunction.call({}).call({}, inputs[0], inputs[1]);
         }
 
-        const updateInnerContent = (e) => {
-            return e
+        const inputArrayDisplay = (e) => {
+            let inputs = "input array [index:value] ";
+            for (let i = 0; i<e.length; i++){
+              inputs += `${i}:${e[i]}; `
+            }
+            return(inputs)
         }
 
       return(
@@ -48,12 +54,11 @@ function FunctionIndex(props) {
               <h2>{expression.name}</h2>
               <div id = "script"> 
               <script id = {expression.name} src="javascript.js">{runFunction(expression.value)} </script>
-                <div> 
+                <h3>{inputArrayDisplay(inputs)}</h3>
                 <h3>Algorithm: {expression.value} </h3>
-                <h2>Result: {updateInnerContent(result)}</h2>
+                <h2>Result: {result}</h2>
                 </div>
               </div>
-            </div>
           )
         })}
           </>
